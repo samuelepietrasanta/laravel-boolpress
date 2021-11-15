@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -14,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+
+        $posts= Post::all();
+
+        return response() -> json(compact('posts'));
     }
 
     /**
@@ -34,9 +38,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+       return response()->json($post);
     }
 
     /**
@@ -59,6 +63,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::destroy($id);
+
+        return response('', 204);
+        //* In questo modo posso fare una destroy tramite il metodo delete 
+        //* Pero' da un software esterno (es. Postman)
     }
 }
