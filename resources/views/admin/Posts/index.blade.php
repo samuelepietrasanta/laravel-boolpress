@@ -20,6 +20,7 @@
                         <td><a href="{{ route('admin.posts.show', $post->id ) }}">{{ $post->titolo }}</a></td>
                         <td>{{ $post->autore}}</td>
                         <td>{{ $post->data}}</td>
+                        <td><a class="btn btn-secondary" href="{{route('admin.posts.edit' , $post->id)}}"> Modifica</a></td>
                     </tr>
                 @empty
                     <tr>
