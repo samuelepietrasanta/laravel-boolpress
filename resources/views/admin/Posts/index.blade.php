@@ -3,8 +3,9 @@
 @section('content')
     <div class="container p-5">
 
-        <header class="p-3">
+        <header class="p-3 d-flex justify-content-between">
             <h1>Post pubblicati</h1>
+            <a class="btn btn-primary" href="{{route ('admin.posts.create')}}"> Crea un nuovo post</a>
         </header>
 
         <table class="table table-bordered">
