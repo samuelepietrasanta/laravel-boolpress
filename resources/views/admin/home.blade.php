@@ -12,7 +12,9 @@
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <a class="btn btn-primary" href="{{route('admin.posts.index')}}">VAI AI POST</a>
+            <a href="{{route('admin.posts.index')}}">
+                <button class="button"><span> VAI AI POST </span></button>
+            </a>
         </div>
     </div>
     
