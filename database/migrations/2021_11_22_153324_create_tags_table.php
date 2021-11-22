@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->id();
             $table->string('name');
             $table->char('color',7);
+            $table->timestamps();
         });
     }
 

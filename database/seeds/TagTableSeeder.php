@@ -18,7 +18,7 @@ class TagTableSeeder extends Seeder
 
         foreach($tagNames as $tagName){
 
-            $newTag = Tag::all();
+            $newTag = new Tag();
             $newTag->name= $tagName;
             $newTag->color = $faker->hexColor();
 
