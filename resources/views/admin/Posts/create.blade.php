@@ -10,6 +10,17 @@
         <a class="btn btn-primary" href="{{route('admin.posts.index')}}"> Torna alla lista dei post</a>
 
     </header>
+
+    <section id="post-form">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>        
+            @endif
     
 
     <form action="{{route('admin.posts.store')}}" method="post" >

@@ -37,6 +37,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'titolo' => 'required|unique:posts|max:255',
+            'contenuto' => 'required|min:100',
+
+        ],
+        [
+            "required" => 'Devi compilare correttamente :attribute',
+            "titolo.required" => 'Non è possibile inserire un post senza titolo',
+            'contenuto.min' => 'Il post deve essere lungo almeno 100 caratteri'
+        ]);
+
         $data = $request->all();
 
         $post = new Post();
@@ -90,8 +102,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('deleted_title' , $post->titolo)->with('alert-message', "$post->titolo è stato eliminato con successo");
     }
 }
